@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="icon" href="favicon.ico">
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
+	<title>%s</title>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	  <a class="navbar-brand" href="/~gabriel.tavora/index.html">%s</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+	  	<span class="navbar-toggler-icon"></span>
+	  </button>
+	  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+	    <div class="navbar-nav">
+	    	<a class="nav-item nav-link" href="gmtUmlMain.cgi?gmtUmlLanguage=%s&gmtUmlConfigurationFileName=%s">%s</a>
+	    	<a class="nav-item nav-link" href="gmtUmlShowRequestRegistrationForm.cgi?gmtUmlLanguage=%s&gmtUmlConfigurationFileName=%s">%s</a>
+	    	<a class="nav-item nav-link" href="gmtUmlShowRequestPasswordResetForm.cgi?gmtUmlLanguage=%s&gmtUmlConfigurationFileName=%s">%s</a>
+	    	<a class="nav-item nav-link" href="gmtUmlShowWebHelp.cgi?gmtUmlLanguage=%s&gmtUmlConfigurationFileName=%s">%s</a>
+	    	<a class="nav-item nav-link" href="gmtUmlShowLicense.cgi?gmtUmlLanguage=%s&gmtUmlConfigurationFileName=%s">%s</a>
+    		<div class="nav-item dropdown">
+	    		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     				%s
+    			</a>
+    			<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+	      			<a class="dropdown-item" href="gmtUmlShowRequestRegistrationForm.cgi?gmtUmlLanguage=english&gmtUmlConfigurationFileName=%s"><img src="images/en-us.png"> English</a>
+      				<a class="dropdown-item" href="gmtUmlShowRequestRegistrationForm.cgi?gmtUmlLanguage=portuguese&gmtUmlConfigurationFileName=%s"><img src="images/pt-br.png"> Portuguese</a>
+      				<a class="dropdown-item disabled" href="#"><img src="images/de.png"> German</a>
+      			</div>
+	    </div>
+	  </div>
+	</nav>
+
+	<div class="container">
+		<div class="card card-container">
+			<img id="profile-img" class="profile-img-card" src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+	        <p id="profile-name" class="profile-name-card"></p>
+			<form class="form-signin" method="POST" action="gmtUmlRequestRegistration.cgi">
+				<h2 class="form-signin-heading">Cadastro</h2>
+				<label for="inputName" class="sr-only">Nome Completo</label>
+				<input type="text" name="nickname" id="inputNickname" class="form-control" placeholder="Nome Completo" required autofocus>
+				<label for="inputPassword" class="sr-only">Senha</label>
+				<input type="password" name="password" id="inputPassword" class="form-control" placeholder="Senha" required>
+				<label for="inputRepeatPassword" class="sr-only">Repita Senha</label>
+				<input type="password" name="password" id="inputPassword" class="form-control" placeholder="Repita Senha" required>
+				<label for="inputEmail" class="sr-only">Seu Email</label>
+				<input type="email" name="password" id="inputPassword" class="form-control" placeholder="Seu Email" required>
+				<label for="inputEmail" class="sr-only">Repita Seu Email</label>
+				<input type="email" name="password" id="inputPassword" class="form-control" placeholder="Repita Seu Email" required>
+				<label for="inputFriendMail" class="sr-only">Email do amigo</label>
+				<input type="email" name="password" id="inputPassword" class="form-control" placeholder="Email do amigo" required>
+				<div class="checkbox">
+					<label>
+						<input type="checkbox" value="remember-me"> Aceito termos de uso.
+					</label>
+				</div>
+				<input type="hidden" name="gmtUmlConfigurationFileName" value="">
+				<input type="hidden" name="gmtUmlLanguage" value="">
+				<button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Cadastrar</button>
+			</form>
+			<a href="#" class="forgot-password">Retornar</a>
+		</div>
+	</div>
+
+	<div class="footer">
+		<a href="mailto:gabriel.tavora@poli.ufrj.br">© 2017 Gabriel Montenegro Tavora.</a>
+	</div>
+
+	<script src="jquery-3.2.1.js"></script>
+	<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

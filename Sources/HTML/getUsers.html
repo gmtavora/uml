@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="icon" href="favicon.ico">
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
+	<title>%s</title>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	  <a class="navbar-brand" href="/~gabriel.tavora/index.html">%s</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+	  	<span class="navbar-toggler-icon"></span>
+	  </button>
+	  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+	    <div class="navbar-nav">
+	    	<a class="nav-item nav-link" href="gmtUmlMain.cgi?gmtUmlLanguage=%s&gmtUmlConfigurationFileName=%s">%s</a>
+	    	<a class="nav-item nav-link" href="gmtUmlShowRequestRegistrationForm.cgi?gmtUmlLanguage=%s&gmtUmlConfigurationFileName=%s">%s</a>
+	    	<a class="nav-item nav-link" href="gmtUmlShowRequestPasswordResetForm.cgi?gmtUmlLanguage=%s&gmtUmlConfigurationFileName=%s">%s</a>
+	    	<a class="nav-item nav-link" href="gmtUmlShowWebHelp.cgi?gmtUmlLanguage=%s&gmtUmlConfigurationFileName=%s">%s</a>
+	    	<a class="nav-item nav-link" href="gmtUmlShowLicense.cgi?gmtUmlLanguage=%s&gmtUmlConfigurationFileName=%s">%s</a>
+    		<div class="nav-item dropdown">
+	    		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     				%s
+    			</a>
+    			<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+	      			<a class="dropdown-item" href="gmtUmlMain.cgi?gmtUmlLanguage=%s&gmtUmlConfigurationFileName=%s"><img src="images/en-us.png"> English</a>
+      				<a class="dropdown-item" href="gmtUmlMain.cgi?gmtUmlLanguage=%s&gmtUmlConfigurationFileName=%s"><img src="images/pt-br.png"> Portuguese</a>
+      				<a class="dropdown-item disabled" href="#"><img src="images/de.png"> German</a>
+      			</div>
+	    </div>
+	  </div>
+	</nav>
+
+	<div class="container">
+		<div class="card">
+			<h2>Users List</h2>
+
+			<p>You can check above the users list. You can also filter the results.</p>
+
+			<form class="form-inline form-filter">
+  			<div class="form-group form-filter">
+    			<label for="inputName" class="sr-only">Name</label>
+    			<input type="text" class="form-control" id="inputName" placeholder="Name">
+  			</div>
+  			<div class="form-group form-filter">
+    			<label for="inputEmail" class="sr-only">Email</label>
+    			<input type="text" class="form-control" id="inputEmail" placeholder="Email">
+  			</div>
+  			<div class="form-group form-filter">
+    			<label for="inputProfile" class="sr-only">Profile</label>
+    			<input type="text" class="form-control" id="inputProfile" placeholder="Profile">
+  			</div>
+  			<button type="submit" class="btn btn-primary">Filter</button>
+			</form>
+
+			<table class="table table-sm table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Profile</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr">
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td colspan="2">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
+
+<br><a href="javascript:history.back()" class="forgot-password">Back</a>
+			
+		</div>
+	</div>
+
+	<div class="footer">
+		<a href="mailto:gabriel.tavora@poli.ufrj.br">© 2017 Gabriel Montenegro Tavora.</a>
+	</div>
+
+	<script src="jquery-3.2.1.js"></script>
+	<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

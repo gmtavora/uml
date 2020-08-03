@@ -1,0 +1,107 @@
+/*
+ * Universidade Federal do Rio de Janeiro
+ * Escola Politecnica
+ * Departamento de Eletronica e de Computacao
+ * Prof. Marcelo Luiz Drumond Lanza
+ * EEL 270 - Computacao II - Turma 2017/2
+ *
+ * $Author: gabriel.tavora $
+ * $Date: 2017/12/21 22:04:50 $
+ * $Log: gmtUmlShowConfigurationValues.c,v $
+ * Revision 1.1  2017/12/21 22:04:50  gabriel.tavora
+ * Initial revision
+ *
+ *
+ */ 
+
+#include<stdio.h>
+
+#include "gmtUmlTypes.h"
+#include "gmtUmlErrors.h"
+
+/*
+ * gmtUmlErrorType
+ * GmtUmlShowConfigurationValues (gmtUmlConfigurationOptionsType *, gmtUmlLanguageType);
+ *
+ * Arguments: 
+ * gmtUmlConfigurationOptionsType * - the structure containing the configuration values (I);
+ * gmtUmlLanguageType - language (I);
+ *
+ * Returned code:
+ * gmtUmlOk - Function has been executed successfully;
+ *
+ * Description:
+ * Prints the configuration values.
+ */
+
+gmtUmlErrorType
+GmtUmlShowConfigurationValues (gmtUmlConfigurationOptionsType *gmtUmlConfiguration, gmtUmlLanguageType gmtUmlLanguage)
+{
+  if ((gmtUmlConfiguration == NULL))
+    return gmtUmlErrorNullPointer;
+
+  if ((gmtUmlLanguage >= gmtUmlLanguageAmount))
+    gmtUmlLanguage = gmtUmlEnglish;
+
+  char * message [gmtUmlLanguageAmount][10] =
+  {
+    {
+      "Project name",
+      "Administrator user",
+      "Default encryption algorithm",
+      "Private root directory",
+      "Data directory",
+      "Cookies directory",
+      "Users data filename",
+      "Invited users data filename",
+      "Requesting users data filename",
+      "Locked users data filename"
+    },
+    {
+      "Nome do projeto",
+      "Usuario administrador",
+      "Algoritmo de cifragem padrao",
+      "Diretorio de root",
+      "Diretorio de dados",
+      "Diretorio de cookies",
+      "Arquivo de dados de usuarios",
+      "Arquivo de usuarios convidados",
+      "Arquivo de solicitacoes de usuarios",
+      "Arquivo de usuarios bloqueados"
+    }
+  };
+
+  printf ("%s: %s.\n", message [gmtUmlLanguage][0], gmtUmlConfiguration->gmtUmlProjectName);
+  printf ("%s: %lu.\n", message [gmtUmlLanguage][1], gmtUmlConfiguration->gmtUmlAdministratorUserIdentifier);
+
+  switch (gmtUmlConfiguration->gmtUmlCryptAlgorithm)
+  {
+    default:
+    case gmtUmlDes:
+      printf ("%s: Des.\n", message [gmtUmlLanguage][2]);
+    break;
+
+    case gmtUmlMd5:
+      printf ("%s: MD5.\n", message [gmtUmlLanguage][2]);
+    break;
+
+    case gmtUmlSha256:
+      printf ("%s: Sha256.\n", message [gmtUmlLanguage][2]);
+    break;
+
+    case gmtUmlSha512:
+      printf ("%s: Sha512.\n", message [gmtUmlLanguage][2]);
+  }
+
+  printf ("%s: %s.\n", message [gmtUmlLanguage][3], gmtUmlConfiguration->gmtUmlPrivateRootDirectory);
+  printf ("%s: %s.\n", message [gmtUmlLanguage][4], gmtUmlConfiguration->gmtUmlDataDirectory);
+  printf ("%s: %s.\n", message [gmtUmlLanguage][5], gmtUmlConfiguration->gmtUmlCookiesDirectory);
+  printf ("%s: %s.\n", message [gmtUmlLanguage][6], gmtUmlConfiguration->gmtUmlUsersDataFilename);
+  printf ("%s: %s.\n", message [gmtUmlLanguage][7], gmtUmlConfiguration->gmtUmlInvitedUsersDataFilename);
+  printf ("%s: %s.\n", message [gmtUmlLanguage][8], gmtUmlConfiguration->gmtUmlRequestingUsersDataFilename);
+  printf ("%s: %s.\n", message [gmtUmlLanguage][9], gmtUmlConfiguration->gmtUmlLockedUsersDataFilename);
+
+  return gmtUmlOk;
+}
+
+/* $RCSfile: gmtUmlShowConfigurationValues.c,v $ */

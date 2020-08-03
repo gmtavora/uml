@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="icon" href="favicon.ico">
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
+	<title>%s</title>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	  <a class="navbar-brand" href="/~gabriel.tavora/index.html">%s</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+	  	<span class="navbar-toggler-icon"></span>
+	  </button>
+	  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+	    <div class="navbar-nav">
+	    	<a class="nav-item nav-link" href="gmtUmlMain.cgi?gmtUmlLanguage=%s&gmtUmlConfigurationFileName=%s">%s</a>
+	    	<a class="nav-item nav-link" href="gmtUmlShowRequestRegistrationForm.cgi?gmtUmlLanguage=%s&gmtUmlConfigurationFileName=%s">%s</a>
+	    	<a class="nav-item nav-link" href="gmtUmlShowRequestPasswordResetForm.cgi?gmtUmlLanguage=%s&gmtUmlConfigurationFileName=%s">%s</a>
+	    	<a class="nav-item nav-link" href="gmtUmlShowWebHelp.cgi?gmtUmlLanguage=%s&gmtUmlConfigurationFileName=%s">%s</a>
+	    	<a class="nav-item nav-link" href="gmtUmlShowLicense.cgi?gmtUmlLanguage=%s&gmtUmlConfigurationFileName=%s">%s</a>
+    		<div class="nav-item dropdown">
+	    		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     				%s
+    			</a>
+    			<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+	      			<a class="dropdown-item" href="gmtUmlMain.cgi?gmtUmlLanguage=%s&gmtUmlConfigurationFileName=%s"><img src="images/en-us.png"> English</a>
+      				<a class="dropdown-item" href="gmtUmlMain.cgi?gmtUmlLanguage=%s&gmtUmlConfigurationFileName=%s"><img src="images/pt-br.png"> Portuguese</a>
+      				<a class="dropdown-item disabled" href="#"><img src="images/de.png"> German</a>
+      			</div>
+	    </div>
+	  </div>
+	</nav>
+
+	<div class="container">
+		<div class="card">
+			<h2>Add user</h2>
+			<div class="alert alert-warning" role="alert">
+  			This form adds a new user directly to the system.
+			</div>
+			
+			<form>
+			  <div class="form-row">
+			    <div class="form-group col-md-6">
+			      <label for="inputEmail">Email</label>
+			      <input type="email" class="form-control" id="inputEmail" placeholder="name@service.com">
+			    </div>
+			    <div class="form-group col-md-6">
+			      <label for="inputEmailConfirmation">Confirm email</label>
+			      <input type="email" class="form-control" id="inputEmailConfirmation" placeholder="name@service.com">
+			    </div>
+			  </div>
+			  <div class="form row">
+			  	<div class="form-group col-md-6">
+			      <label for="inputName">Full name</label>
+			      <input type="text" class="form-control" id="inputName" placeholder="John Smith">
+			    </div>
+			    <div class="form-group col-md-6">
+			      <label for="inputNameConfirmation">Confirm name</label>
+			      <input type="text" class="form-control" id="inputNameConfirmation" placeholder="John Smith">
+			    </div>
+			  </div>
+			  <div class="form-row">
+			    <div class="form-group col-md-4">
+			      <label for="inputPassword">Password</label>
+			      <input type="password" class="form-control" id="inputPassword">
+			    </div>
+			    <div class="form-group col-md-4">
+			      <label for="inputPasswordConfirmation">Confirm password</label>
+			      <input type="password" class="form-control" id="inputPasswordConfirmation">
+			    </div>
+			    <div class="form-group col-md-4">
+			      <label for="inputProfile">Profile</label>
+			      <select id="inputProfile" class="form-control">
+			        <option selected>User</option>
+			        <option>Admin</option>
+			      </select>
+			    </div>
+			  </div>
+			  <a href="javascript:history.back()" class="forgot-password">Back</a>
+			  <button type="submit" class="btn btn-primary btn-form">Add User</button>
+			  <button type="reset" class="btn btn-primary btn-form">Reset</button>
+			</form>
+		</div>
+	</div>
+
+	<div class="footer">
+		<a href="mailto:gabriel.tavora@poli.ufrj.br">© 2017 Gabriel Montenegro Tavora.</a>
+	</div>
+
+	<script src="jquery-3.2.1.js"></script>
+	<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

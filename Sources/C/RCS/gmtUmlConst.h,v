@@ -1,0 +1,118 @@
+head	1.2;
+access;
+symbols;
+locks
+	gabriel.tavora:1.2; strict;
+comment	@ * @;
+
+
+1.2
+date	2017.12.21.22.04.50;	author gabriel.tavora;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2017.11.22.21.56.21;	author gabriel.tavora;	state Exp;
+branches;
+next	;
+
+
+desc
+@Aula 1.1 finalizada.
+@
+
+
+1.2
+log
+@*** empty log message ***
+@
+text
+@/*
+ * Universidade Federal do Rio de Janeiro
+ * Escola Politecnica
+ * Departamento de Eletronica e de Computacao
+ * Prof. Marcelo Luiz Drumond Lanza
+ * EEL 270 - Computacao II - Turma 2017/2
+ *
+ * $Author: gabriel.tavora $
+ * $Date: 2017/11/22 21:56:21 $
+ * $Log: gmtUmlConst.h,v $
+ * Revision 1.1  2017/11/22 21:56:21  gabriel.tavora
+ * Initial revision
+ *
+ *
+ */ 
+
+#ifndef _GMTUMLCONST_H
+#define _GMTUMLCONST_H "@@(#)gmtUmlConst.h $Revision: 1.1 $"
+
+#define GMT_UML_MAX_PATH_LENGTH			1024
+#define GMT_UML_MAX_FILE_NAME_LENGTH		255
+#define GMT_UML_MAX_NICKNAME_LENGTH		32
+#define GMT_UML_MIN_PASSWORD_LENGTH   6
+#define GMT_UML_MAX_PASSWORD_LENGTH		32
+#define GMT_UML_MAX_NAME_LENGTH			32
+#define GMT_UML_MAX_EMAIL_LENGTH		48
+#define GMT_UML_MAX_LANGUAGE_LENGTH		32
+#define GMT_UML_MAX_PROFILE_LENGTH		20
+#define GMT_UML_MAX_ID_LENGTH			20
+#define GMT_UML_MAX_KEY_LENGTH			256
+#define GMT_UML_MAX_ENCRYPTED_PASSWORD_LENGTH 	256
+#define GMT_UML_FILE_NAME_VALID_CHARS		"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.-_ /"
+#define GMT_UML_NAME_VALID_CHARS		"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+#define GMT_UML_NICKNAME_VALID_CHARS		"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ."
+#define GMT_UML_PASSWORD_VALID_CHARS		"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!."
+#define GMT_UML_ENCRYPTED_PASSWORD_VALID_CHARS	"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789./$"
+#define GMT_UML_EMAIL_VALID_CHARS   "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789._@@"
+#define GMT_UML_DES_VALID_CHARS			"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789./"
+#define GMT_UML_MD5_VALID_CHARS			"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789./"
+#define GMT_UML_SHA256_VALID_CHARS		"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789./"
+#define GMT_UML_SHA512_VALID_CHARS		"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789./"
+#define GMT_UML_SALT_VALID_CHARS		"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789./"
+#define GMT_UML_LANGUAGE_VALID_CHARS		"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+#define GMT_UML_PROFILE_VALID_CHARS "0123456789"
+#define GMT_UML_ID_VALID_CHARS "0123456789"
+#define GMT_UML_MAX_KEY_LENGTH			256
+#define GMT_UML_KEY_VALID_CHARS			"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789./"
+#define GMT_UML_USERS_FILE_LINE_LENGTH GMT_UML_MAX_NAME_LENGTH+GMT_UML_MAX_NICKNAME_LENGTH+GMT_UML_MAX_PASSWORD_LENGTH+GMT_UML_MAX_EMAIL_LENGTH+GMT_UML_MAX_ID_LENGTH+GMT_UML_MAX_PROFILE_LENGTH
+
+#define GMT_UML_DEFAULT_LANGUAGE		"gmtUmlEnglish"
+#define GMT_UML_DEFAULT_CONFIG_FILE		"gmt-uml.cfg"
+#define GMT_UML_DEFAULT_USER			"admin"
+
+#define GMT_UML_ADMIN_EMAIL			"gabriel.tavora@@poli.ufrj.br"
+
+#endif
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d8 6
+a13 3
+ * $Author$
+ * $Date$
+ * $Log$
+d18 35
+a52 1
+#define _GMTUMLCONST_H "@@(#)gmtUmlConst.h $Revision$"
+d54 1
+a54 14
+#define GMT_UML_MAX_PATH_LENGTH		1024
+#define GMT_UML_MAX_FILE_NAME_LENGTH	255
+#define GMT_UML_MAX_NICKNAME_LENGTH	65
+#define GMT_UML_MAX_PASSWORD_LENGTH	127
+#define GMT_UML_MAX_NAME_LENGTH		512
+#define GMT_UML_MAX_EMAIL_LENGTH	1024
+#define GMT_UML_FILE_NAME_VALID_CHARS	"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.-_ /"
+#define GMT_UML_NAME_VALID_CHARS	"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ -\'"
+#define GMT_UML_PASSWORD_VALID_CHARS 	"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789./$"
+#define GMT_UML_DES_VALID_CHARS		"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789./"
+#define GMT_UML_MD5_VALID_CHARS 	"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789./"
+#define GMT_UML_SHA256_VALID_CHARS	"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789./"
+#define GMT_UML_SHA512_VALID_CHARS	"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789./"
+#define GMT_UML_SALT_VALID_CHARS	"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789./"
+@

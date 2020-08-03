@@ -1,0 +1,533 @@
+head	1.3;
+access;
+symbols;
+locks
+	gabriel.tavora:1.3; strict;
+comment	@ * @;
+
+
+1.3
+date	2017.12.21.22.04.50;	author gabriel.tavora;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2017.11.22.21.57.10;	author gabriel.tavora;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2017.11.15.02.19.45;	author gabriel.tavora;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.3
+log
+@*** empty log message ***
+@
+text
+@/*
+ * Universidade Federal do Rio de Janeiro
+ * Escola Politecnica
+ * Departamento de Eletronica e de Computacao
+ * Prof. Marcelo Luiz Drumond Lanza
+ * EEL 270 - Computacao II - Turma 2017/2
+ *
+ * $Author: gabriel.tavora $
+ * $Date: 2017/11/22 21:57:10 $
+ * $Log: gmtUmlErrors.c,v $
+ * Revision 1.2  2017/11/22 21:57:10  gabriel.tavora
+ * Aula 1.1 finalizada.
+ *
+ * Revision 1.1  2017/11/15 02:19:45  gabriel.tavora
+ * Initial revision
+ *
+ *
+ */ 
+
+#include "gmtUmlTypes.h"
+#include "gmtUmlErrors.h"
+
+char * gmtUmlCliErrorMessages [gmtUmlLanguageAmount] [gmtUmlErrorAmount] =
+{
+  {
+    "Ok",
+    "The function is trying to use a null pointer",
+    "Invalid file path",
+    "Invalid file name",
+    "The function is trying to use an invalid length",
+    "The string length is not valid",
+    "The string contains an invalid character",
+    "Invalid username",
+    "Invalid email",
+    "Invalid name",
+    "Invalid encryption algorithm",
+    "Invalid password",
+    "Invalid salt",
+    "Unsupported algorithm",
+    "Passwords don\'t match",
+    "Invalid configuration option",
+    "Invalid user id",
+    "Null argument",
+    "Invalid language",
+    "Invalid argument",
+    "Invalid configuration file",
+    "Invalid user",
+    "User names don\'t match.",
+    "Emails don\'t match.",
+    "Too few arguments",
+    "Invalid profile",
+    "Invalid friend email",
+    "Invalid nickname",
+    "Incorrect environment",
+    "Could not open file",
+    "Invalid user data",
+    "Users file already exists",
+    "Could not create temporary file",
+    "Could not allocate memory",
+    "The user file is corrupted.",
+    "Invalid project name",
+    "Could not send email",
+    "Option not supported",
+    "Invalid key",
+    "Argument set twice",
+    "Cannot create nickname",
+    "User not found",
+    "Incorrect password",
+    "Could not create configuration file",
+    "Permission denied",
+    "There are no invitations",
+    "The invited users file is corrupted",
+    "Invitation not found",
+    "The invitation expired",
+    "Nickname already exists",
+    "Email already exists",
+    "The system has been configured already",
+    "The system is not configured",
+    "User still awaiting for approval",
+    "There is no registration request pending",
+    "Request not found",
+    "Friend not found",
+    "Administrator not found"
+  },
+  {
+    "Sucesso",
+    "A funcao esta tentando usar um ponteiro nulo",
+    "Diretorio invalido",
+    "Nome de arquivo invalido",
+    "O comprimento informado e invalido",
+    "A string possui comprimento nao permitido",
+    "A string possui caractere invalido",
+    "Nome de usuario invalido",
+    "Email invalido",
+    "Nome invalido",
+    "Algoritmo de codificacao invalido",
+    "Senha Invalida",
+    "Salt invalido",
+    "Algoritmo de codificacao nao suportado",
+    "As senhas nao conferem",
+    "Opcao de configuracao invalida",
+    "Id de usuario invalida",
+    "Argumento nulo",
+    "Idioma invalido",
+    "Argumento invalido",
+    "Arquivo de configuracao invalido",
+    "Usuario invalido",
+    "Nomes de usuario nao correspondem",
+    "Emails nao correspondem",
+    "Numero insuficiente de argumentos",
+    "Perfil invalido",
+    "Email de amigo invalido",
+    "Nickname invalido",
+    "Ambiente incorreto",
+    "Nao foi possivel abrir arquiv",
+    "Dados de usuario invalidos",
+    "Arquivo de usuarios ja existe",
+    "Nao foi possivel criar arquivo temporario",
+    "Nao foi possivel alocar memoria",
+    "O arquivo de dados de usuario esta corrompido",
+    "Nome de projeto invalido",
+    "Nao foi possivel enviar email",
+    "Opcao nao suportada",
+    "Chave invalida",
+    "Argumento definido duas vezes",
+    "Nao foi possivel criar apelido",
+    "Usuario nao encontrado",
+    "Senha incorreta",
+    "Nao foi possivel criar arquivo de configuracao",
+    "Permissao negada",
+    "Nao ha nenhum convite",
+    "O arquivo de usuarios convidados esta corrompido",
+    "Convite nao encontrado",
+    "O convite expirou",
+    "Este apelido ja existe",
+    "Este email ja esta cadastrado",
+    "O sistema ja foi configurado",
+    "Sistema nao configurado",
+    "Usuario aguardando aprovacao",
+    "Nao ha nenhuma solicitacao de registro",
+    "Solicitacao nao encontrada",
+    "Amigo nao encontrado",
+    "Administrador nao encontrado"
+  }
+};
+
+char * gmtUmlNcursesErrorMessages [gmtUmlLanguageAmount] [gmtUmlErrorAmount] =
+{
+  {
+    "Ok",
+    "The function is trying to use a null pointer",
+    "Invalid file path",
+    "Invalid file name",
+    "The function is trying to use an invalid length",
+    "The string length is not valid",
+    "The string contains an invalid character",
+    "Invalid username",
+    "Invalid email",
+    "Invalid name",
+    "Invalid encryption algorithm",
+    "Invalid password",
+    "Invalid salt",
+    "Unsupported algorithm",
+    "Passwords don\'t match",
+    "Invalid configuration option",
+    "Invalid user id",
+    "Null argument",
+    "Invalid language",
+    "Invalid argument",
+    "Invalid configuration file",
+    "Invalid user",
+    "User names don\'t match.",
+    "Emails don\'t match.",
+    "Too few arguments",
+    "Invalid profile",
+    "Invalid friend email",
+    "Invalid nickname",
+    "Incorrect environment",
+    "Could not open file",
+    "Invalid user data",
+    "Users file already exists",
+    "Could not create temporary file",
+    "Could not allocate memory",
+    "The user file is corrupted.",
+    "Invalid project name",
+    "Could not send email",
+    "Option not supported",
+    "Invalid key",
+    "Argument set twice",
+    "Cannot create nickname",
+    "User not found",
+    "Incorrect password",
+    "Could not create configuration file",
+    "Permission denied",
+    "There are no invitations",
+    "The invited users file is corrupted",
+    "Invitation not found",
+    "The invitation expired",
+    "Nickname already exists",
+    "Email already exists",
+    "The system has been configured already",
+    "The system is not configured",
+    "User still awaiting for approval",
+    "There is no registration request pending",
+    "Request not found",
+    "Friend not found",
+    "Administrator not found"
+  },
+  {
+    "Sucesso",
+    "A funcao esta tentando usar um ponteiro nulo",
+    "Diretorio invalido",
+    "Nome de arquivo invalido",
+    "O comprimento informado e invalido",
+    "A string possui comprimento nao permitido",
+    "A string possui caractere invalido",
+    "Nome de usuario invalido",
+    "Email invalido",
+    "Nome invalido",
+    "Algoritmo de codificacao invalido",
+    "Senha Invalida",
+    "Salt invalido",
+    "Algoritmo de codificacao nao suportado",
+    "As senhas nao conferem",
+    "Opcao de configuracao invalida",
+    "Id de usuario invalida",
+    "Argumento nulo",
+    "Idioma invalido",
+    "Argumento invalido",
+    "Arquivo de configuracao invalido",
+    "Usuario invalido",
+    "Nomes de usuario nao correspondem",
+    "Emails nao correspondem",
+    "Numero insuficiente de argumentos",
+    "Perfil invalido",
+    "Email de amigo invalido",
+    "Nickname invalido",
+    "Ambiente incorreto",
+    "Nao foi possivel abrir arquiv",
+    "Dados de usuario invalidos",
+    "Arquivo de usuarios ja existe",
+    "Nao foi possivel criar arquivo temporario",
+    "Nao foi possivel alocar memoria",
+    "O arquivo de dados de usuario esta corrompido",
+    "Nome de projeto invalido",
+    "Nao foi possivel enviar email",
+    "Opcao nao suportada",
+    "Chave invalida",
+    "Argumento definido duas vezes",
+    "Nao foi possivel criar apelido",
+    "Usuario nao encontrado",
+    "Senha incorreta",
+    "Nao foi possivel criar arquivo de configuracao",
+    "Permissao negada",
+    "Nao ha nenhum convite",
+    "O arquivo de usuarios convidados esta corrompido",
+    "Convite nao encontrado",
+    "O convite expirou",
+    "Este apelido ja existe",
+    "Este email ja esta cadastrado",
+    "O sistema ja foi configurado",
+    "Sistema nao configurado",
+    "Usuario aguardando aprovacao",
+    "Nao ha nenhuma solicitacao de registro",
+    "Solicitacao nao encontrada",
+    "Amigo nao encontrado",
+    "Administrador nao encontrado"
+  }
+};
+
+char * gmtUmlWebErrorMessages [gmtUmlLanguageAmount] [gmtUmlErrorAmount] =
+{
+  {
+    "Ok",
+    "The function is trying to use a null pointer",
+    "Invalid file path",
+    "Invalid file name",
+    "The function is trying to use an invalid length",
+    "The string length is not valid",
+    "The string contains an invalid character",
+    "Invalid username",
+    "Invalid email",
+    "Invalid name",
+    "Invalid encryption algorithm",
+    "Invalid password",
+    "Invalid salt",
+    "Unsupported algorithm",
+    "Passwords don\'t match",
+    "Invalid configuration option",
+    "Invalid user id",
+    "Null argument",
+    "Invalid language",
+    "Invalid argument",
+    "Invalid configuration file",
+    "Invalid user",
+    "User names don\'t match.",
+    "Emails don\'t match.",
+    "Too few arguments",
+    "Invalid profile",
+    "Invalid friend email",
+    "Invalid nickname",
+    "Incorrect environment",
+    "Could not open file",
+    "Invalid user data",
+    "Users file already exists",
+    "Could not create temporary file",
+    "Could not allocate memory",
+    "The user file is corrupted.",
+    "Invalid project name",
+    "Could not send email",
+    "Option not supported",
+    "Invalid key",
+    "Argument set twice",
+    "Cannot create nickname",
+    "User not found",
+    "Incorrect password",
+    "Could not create configuration file",
+    "Permission denied",
+    "There are no invitations",
+    "The invited users file is corrupted",
+    "Invitation not found",
+    "The invitation expired",
+    "Nickname already exists",
+    "Email already exists",
+    "The system has been configured already",
+    "The system is not configured",
+    "User still awaiting for approval",
+    "There is no registration request pending",
+    "Request not found",
+    "Friend not found",
+    "Administrator not found"
+  },
+  {
+    "Sucesso",
+    "A funcao esta tentando usar um ponteiro nulo",
+    "Diretorio invalido",
+    "Nome de arquivo invalido",
+    "O comprimento informado e invalido",
+    "A string possui comprimento nao permitido",
+    "A string possui caractere invalido",
+    "Nome de usuario invalido",
+    "Email invalido",
+    "Nome invalido",
+    "Algoritmo de codificacao invalido",
+    "Senha Invalida",
+    "Salt invalido",
+    "Algoritmo de codificacao nao suportado",
+    "As senhas nao conferem",
+    "Opcao de configuracao invalida",
+    "Id de usuario invalida",
+    "Argumento nulo",
+    "Idioma invalido",
+    "Argumento invalido",
+    "Arquivo de configuracao invalido",
+    "Usuario invalido",
+    "Nomes de usuario nao correspondem",
+    "Emails nao correspondem",
+    "Numero insuficiente de argumentos",
+    "Perfil invalido",
+    "Email de amigo invalido",
+    "Nickname invalido",
+    "Ambiente incorreto",
+    "Nao foi possivel abrir arquiv",
+    "Dados de usuario invalidos",
+    "Arquivo de usuarios ja existe",
+    "Nao foi possivel criar arquivo temporario",
+    "Nao foi possivel alocar memoria",
+    "O arquivo de dados de usuario esta corrompido",
+    "Nome de projeto invalido",
+    "Nao foi possivel enviar email",
+    "Opcao nao suportada",
+    "Chave invalida",
+    "Argumento definido duas vezes",
+    "Nao foi possivel criar apelido",
+    "Usuario nao encontrado",
+    "Senha incorreta",
+    "Nao foi possivel criar arquivo de configuracao",
+    "Permissao negada",
+    "Nao ha nenhum convite",
+    "O arquivo de usuarios convidados esta corrompido",
+    "Convite nao encontrado",
+    "O convite expirou",
+    "Este apelido ja existe",
+    "Este email ja esta cadastrado",
+    "O sistema ja foi configurado",
+    "Sistema nao configurado",
+    "Usuario aguardando aprovacao",
+    "Nao ha nenhuma solicitacao de registro",
+    "Solicitacao nao encontrada",
+    "Amigo nao encontrado",
+    "Administrador nao encontrado"
+  }
+};
+
+char * 
+GmtUmlGetCliErrorMessage (gmtUmlErrorType gmtUmlError, gmtUmlLanguageType gmtUmlLanguage)
+{
+  return gmtUmlCliErrorMessages [gmtUmlLanguage] [gmtUmlError];
+}
+
+char * 
+GmtUmlGetNcursesErrorMessage (gmtUmlErrorType gmtUmlError, gmtUmlLanguageType gmtUmlLanguage)
+{
+  return gmtUmlNcursesErrorMessages [gmtUmlLanguage] [gmtUmlError];
+}
+
+char * 
+GmtUmlGetWebErrorMessage (gmtUmlErrorType gmtUmlError, gmtUmlLanguageType gmtUmlLanguage)
+{
+  return gmtUmlWebErrorMessages [gmtUmlLanguage] [gmtUmlError];
+}
+@
+
+
+1.2
+log
+@Aula 1.1 finalizada.
+@
+text
+@d9 1
+a9 1
+ * $Date: 2017/11/15 02:19:45 $
+d11 3
+d20 3
+d40 44
+a83 1
+    "Incorrect Password",
+d100 28
+d129 15
+d147 1
+a147 1
+char * gmtUmlNcursesMessages [gmtUmlLanguageAmount] [gmtUmlErrorAmount] =
+d164 44
+a207 1
+    "Incorrect Password",
+d224 28
+d253 15
+d271 1
+a271 2
+
+char * gmtWebCliErrorMessages [gmtUmlLanguageAmount] [gmtUmlErrorAmount] =
+d288 44
+a331 1
+    "Incorrect Password",
+d348 28
+d377 15
+a394 1
+
+d396 1
+a396 1
+GmtUmlGetCliErrorMessage (gmtUmlErrorType, gmtUmlLanguageType)
+d398 1
+a398 1
+  return gmtUmlCliErrorMessages [gmtUmlLanguageType] [gmtUmlErrorType];
+d402 1
+a402 1
+GmtUmlGetNcursesErrorMessage (gmtUmlErrorType, gmtUmlLanguageType)
+d404 1
+a404 1
+  return gmtUmlNcursesErrorMessages [gmtUmlLanguageType] [gmtUmlErrorType];
+d408 1
+a408 1
+GmtUmlGetWebErrorMessage (gmtUmlErrorType, gmtUmlLanguageType)
+d410 1
+a410 1
+  return gmtUmlWebErrorMessages [gmtUmlLanguageType] [gmtUmlErrorType];
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d8 6
+a13 3
+ * $Author$
+ * $Date$
+ * $Log$
+d19 16
+a34 1
+  { "Ok"
+d37 15
+a51 1
+    "Sucesso"
+d57 16
+a72 1
+  { "Ok"
+d75 15
+a89 1
+    "Sucesso"
+d93 1
+d96 16
+a111 1
+  { "Ok"
+d114 15
+a128 1
+    "Sucesso"
+d132 1
+@

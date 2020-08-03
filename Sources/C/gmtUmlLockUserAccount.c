@@ -1,0 +1,121 @@
+/*
+ * Universidade Federal do Rio de Janeiro
+ * Escola Politecnica
+ * Departamento de Eletronica e de Computacao
+ * Prof. Marcelo Luiz Drumond Lanza
+ * EEL 270 - Computacao II - Turma 2017/2
+ *
+ * $Author: gabriel.tavora $
+ * $Date: 2017/12/21 22:04:50 $
+ * $Log: gmtUmlLockUserAccount.c,v $
+ * Revision 1.1  2017/12/21 22:04:50  gabriel.tavora
+ * Initial revision
+ *
+ *
+ *
+ */ 
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include<time.h>
+
+#include "gmtUmlTypes.h"
+#include "gmtUmlConst.h"
+#include "gmtUmlErrors.h"
+#include "gmtUmlConfig.h"
+#include "gmtUmlFunctions.h"
+#include "gmtUmlGetUsers.h"
+#include "gmtUmlLockUserAccount.h"
+#include "./Libraries/sendmail.h"
+
+#define MAX_EMAIL_SUBJECT_LENGTH 512
+#define MAX_EMAIL_BODY_LENGTH 1024*5
+
+/*
+ * gmtUmlErrorType
+ * GmtUmlLockUserAccount (gmtUmlConfigurationOptionsType *, char *, char *);
+ *
+ * Arguments:
+ * gmtUmlConfigurationOptionsType * - pointer to the struct containing the configuration options (I);
+ * char * - admin's nickname (I);
+ * char * - user's nickname (I);
+ *
+ * Returned code:
+ * gmtUmlOk - Function has been executed successfully;
+ *
+ * Description:
+ * Locks an user account.
+ */
+
+gmtUmlErrorType 
+GmtUmlLockUserAccount (gmtUmlConfigurationOptionsType *configurationOptions, char *adminNickname, char *userNickname)
+{
+  gmtUmlUserDataType *usersList, *currentUser, *userData = NULL, *adminData = NULL;
+  gmtUmlErrorType gmtUmlValidation;
+  FILE *lockedUsersReadFile, *lockedUsersWriteFile;
+  char gmtUmlTempName [GMT_UML_MAX_FILE_NAME_LENGTH+1], gmtUmlBackupName [GMT_UML_MAX_FILE_NAME_LENGTH+1];
+  int gmtUmlTempFile;
+  char buffer [GMT_UML_USERS_FILE_LINE_LENGTH+1];
+
+  if ((adminNickname == NULL) || (userNickname == NULL))
+    return gmtUmlErrorNullPointer;
+
+  if ((gmtUmlValidation = GmtUmlGetUsers (&usersList, configurationOptions)))
+    return gmtUmlValidation;
+
+  if (usersList == NULL)
+    return gmtUmlErrorSystemNotConfigured;
+
+  #ifdef _DEBUG_
+  printf ("Searching for user and admin...\n");
+  #endif
+
+  currentUser = usersList;
+
+  while (currentUser != NULL)
+  {
+    if (strcmp (currentUser->nickname, userNickname) == 0)
+      userData = currentUser;
+
+    if (strcmp (currentUser->nickname, adminNickname) == 0)
+      adminData = currentUser;
+
+    currentUser = currentUser->next;
+  }
+
+  if (adminData == NULL)
+    return gmtUmlErrorAdminNotFound;
+
+  if (userData == NULL)
+    return gmtUmlErrorUserNotFound;
+
+  /* write user data in locked.users file */
+  lockedUsersReadFile = fopen (configurationOptions->gmtUmlLockedUsersDataFilename, "r");
+
+  if (!lockedUsersReadFile)
+    return gmtUmlErrorOpeningFile;
+
+  strcpy (gmtUmlTempName, "gmtUmlLockedUsersDataFile.XXXXXX");
+  gmtUmlTempFile = mkstemp (gmtUmlTempName);
+
+  if (gmtUmlTempFile == -1)
+    return gmtUmlErrorCreatingTempFile;
+
+  if (!(gmtUmlUsersWriteFile = fdopen (gmtUmlTempFile, "w")))
+    return gmtUmlErrorCreatingTempFile;
+
+  while (fgets (buffer, GMT_UML_USERS_FILE_LINE_LENGTH+1, lockedUsersReadFile))
+  {
+    fprintf (lockedUsersWriteFile, buffer);
+  }
+
+  fprintf (lockedUsersWriteFile, "%llu:%s:%llu:%llu", userData->id, userData->password, time (NULL), adminData->id);
+
+  fclose (lockedUsersWriteFile);
+  fclose (lockedUsersReadFile);
+
+  return gmtUmlOk;
+}
+
+/* $RCSfile: gmtUmlLockUserAccount.c,v $ */

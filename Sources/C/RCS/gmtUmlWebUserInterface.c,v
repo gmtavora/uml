@@ -1,0 +1,97 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@ * @;
+
+
+1.1
+date	2017.12.21.22.04.50;	author gabriel.tavora;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@/*
+ * Universidade Federal do Rio de Janeiro
+ * Escola Politecnica
+ * Departamento de Eletronica e de Computacao
+ * Prof. Marcelo Luiz Drumond Lanza
+ * EEL 270 - Computacao II - Turma 2017/2
+ *
+ * $Author$
+ * $Date$
+ * $Log$
+ *
+ */
+
+#include "gmtUmlConst.h"
+#include "gmtUmlTypes.h"
+#include "gmtUmlWebUserInterface.h"
+
+char * gmtUmlWebUIMessages [gmtUmlLanguageAmount][gmtUmlUIMessageAmount] =
+{
+	{
+		"Projeto",
+		"Projeto",
+		"Reset Password",
+		"Help",
+		"License",
+		"Username",
+		"Password",
+		"Remember me",
+		"Forgot password",
+		"Register",
+		"Home",
+		"Login",
+    "Language",
+    "Email",
+    "Back",
+    "Full Name",
+    "Confirm password",
+    "Your Email",
+    "Confirm your email",
+    "Your friend's email",
+    "I accept the terms of use."
+	},
+	{
+		"Projeto",
+		"Projeto",
+		"Resetar Senha",
+		"Ajuda",
+		"Licenca",
+		"Usuario",
+		"Senha",
+		"Lembrar-me",
+		"Esqueci a senha",
+		"Cadastrar",
+		"Pagina Inicial",
+		"Entrar",
+    "Idioma",
+    "Email",
+    "Voltar",
+    "Nome Completo",
+    "Confirme sua senha",
+    "Seu email",
+    "Confirme seu email",
+    "Email do seu amigo",
+    "Aceito os termos de uso."
+	}
+};
+
+char *
+GmtUmlGetWebUserInterface (gmtUmlMessageType gmtUmlMessage, gmtUmlLanguageType gmtUmlLanguage)
+{
+  return gmtUmlWebUIMessages [gmtUmlLanguage] [gmtUmlMessage];
+}
+
+/* $RCSfile$ */
+@

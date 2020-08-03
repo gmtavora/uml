@@ -1,0 +1,137 @@
+head	1.1;
+access;
+symbols;
+locks
+	gabriel.tavora:1.1; strict;
+comment	@# @;
+
+
+1.1
+date	2017.12.21.22.04.50;	author gabriel.tavora;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@# Universidade Federal do Rio de Janeiro
+# Escola Politecnica
+# Departamento de Eletronica e de Computacao
+# Prof. Marcelo Luiz Drumond Lanza
+# EEL 270 - Computacao II - Turma 2017/2
+# 
+# $Author$
+# $Date$
+# $Log$
+#
+
+# Compilacao e Link-edicao
+CC = gcc
+LD = gcc
+
+# mkdir
+MKDIR = mkdir -p
+
+# Flags de compilacao e link-edicao
+CFLAGS = -Wall -ansi -std=c99
+LFLAGS = -Wall -ansi -std=c99
+
+# Diretorios
+GMTUMLWEBDIR = ~gabriel.tavora/public/html/
+GMTUMLBINDIR = ~gabriel.tavora/private/EEL270/2017-2/GMT_UML/Binaries/
+GMTUMLDATADIR = ~gabriel.tavora/private/EEL270/2017-2/GMT_UML/Data/
+GMTUMLHTMLDIR = ~gabriel.tavora/private/EEL270/2017-2/GMT_UML/Sources/HTML/
+CGIDIR = CGIs/
+
+# OBJS
+GMTUMLOBJS = gmtUmlFunctions.o gmtUmlShowCliHelp.o gmtUmlRunNcursesInterface.o \
+	     gmtUmlShowConfigurationValues.o gmtUmlErrors.o gmtUmlAddUser.o \
+	     gmtUmlCliUserInterface.o gmtUmlGetUsers.o gmtUmlSearchUsers.o gmtUmlRejectInvite.o \
+	     gmtUmlAcceptInvite.o gmtUmlChangeUserPassword.o gmtUmlRequestRegistration.o \
+	     gmtUmlGetPendingRegistrationRequestsPerUser.o gmtUmlGetPendingRegistrationRequests.o \
+	     gmtUmlApproveRegistrationRequest.o  gmtUmlDisapproveRegistrationRequest.o gmtUml.o
+GMTUMLCGIMAINOBJS = gmtUmlFunctions.o gmtUmlWebUserInterface.o gmtUmlGetUsers.o gmtUmlCliUserInterface.o gmtUmlCgiMain.o
+GMTUMLSHOWLICENSEOBJS = gmtUmlFunctions.o gmtUmlGetUsers.o gmtUmlCliUserInterface.o gmtUmlWebUserInterface.o gmtUmlShowLicense.o
+GMTUMLSHOWPASSWORDRESETOBJS = gmtUmlFunctions.o gmtUmlWebUserInterface.o gmtUmlGetUsers.o gmtUmlCliUserInterface.o \
+			      gmtUmlCgiShowRequestPasswordResetForm.o
+GMTUMLSHOWREGISTRATIONFORMOBJS = gmtUmlFunctions.o gmtUmlWebUserInterface.o gmtUmlGetUsers.o gmtUmlCliUserInterface.o \
+				 gmtUmlCgiShowRequestRegistrationForm.o
+GMTUMLSHOWWEBHELPOBJS = gmtUmlFunctions.o gmtUmlWebUserInterface.o gmtUmlGetUsers.o gmtUmlCliUserInterface.o \
+			gmtUmlCgiShowWebHelp.o
+GMTUMLCGILOGINOBJS = gmtUmlCgiLogin.o gmtUmlFunctions.o gmtUmlWebUserInterface.o gmtUmlGetUsers.o gmtUmlCliUserInterface.o \
+		     gmtUmlErrors.o
+
+# Executaveis
+EXECS = gmtUml \
+	gmtUmlMain.cgi \
+	gmtUmlLogin.cgi \
+	gmtUmlShowLicense.cgi \
+	gmtUmlShowRequestPasswordResetForm.cgi \
+	gmtUmlShowRequestRegistrationForm.cgi \
+	gmtUmlShowWebHelp.cgi
+
+# HTML
+HTML = html-indexes \
+       html-images \
+       html-other
+
+# Regra Implicita
+.c.o:
+	$(CC) $(CFLAGS) -c $<
+
+# Rotulos
+libgmtuml.a:
+	ar -r $@@ $(LIBGMTUMLOBJS)
+
+install: $(directories) $(HTML) $(EXECS)
+
+directories:
+	$(MKDIR) $(GMTUMLWEBDIR)
+	$(MKDIR) $(GMTUMLBINDIR)
+	$(MKDIR) $(GMTUMLDATADIR)
+	$(MKDIR) $(GMTUMLWEBDIR)$(CGIDIR)
+
+html-indexes:
+	cp $(GMTUMLHTMLDIR)index_en-us.html $(GMTUMLWEBDIR)index_en-us.html
+	cp $(GMTUMLHTMLDIR)index_pt-br.html $(GMTUMLWEBDIR)index_pt-br.html
+
+html-images:
+	cp -R $(GMTUMLHTMLDIR)images $(GMTUMLWEBDIR)images
+
+html-other:
+	cp -R $(GMTUMLHTMLDIR)CGIs/bootstrap $(GMTUMLWEBDIR)CGIs/bootstrap
+	cp $(GMTUMLHTMLDIR)CGIs/jquery-3.2.1.js $(GMTUMLWEBDIR)CGIs/jquery-3.2.1.js
+	cp $(GMTUMLHTMLDIR)CGIs/style.css $(GMTUMLWEBDIR)CGIs/style.css
+
+gmtUml: $(GMTUMLOBJS)
+	$(LD) $(LFLAGS) -o $(GMTUMLBINDIR)$@@ $(GMTUMLOBJS) -lcrypt -lncurses -L Libraries -lsendmail -D_DEBUG_
+
+gmtUmlMain.cgi: $(GMTUMLCGIMAINOBJS)
+	$(LD) $(LFLAGS) -o $(GMTUMLWEBDIR)$(CGIDIR)$@@ $(GMTUMLCGIMAINOBJS) -L Libraries -lmlcgi -lcrypt
+
+gmtUmlLogin.cgi: $(GMTUMLCGILOGINOBJS)
+	$(LD) $(LFLAGS) -o $(GMTUMLWEBDIR)$(CGIDIR)$@@ $(GMTUMLCGILOGINOBJS) -L Libraries -lmlcgi -lcrypt
+
+gmtUmlShowLicense.cgi: $(GMTUMLSHOWLICENSEOBJS)
+	$(LD) $(LFLAGS) -o $(GMTUMLWEBDIR)$(CGIDIR)$@@ $(GMTUMLSHOWLICENSEOBJS) -L Libraries -lmlcgi -lcrypt
+
+gmtUmlShowRequestPasswordResetForm.cgi: $(GMTUMLSHOWPASSWORDRESETOBJS)
+	$(LD) $(LFLAGS) -o $(GMTUMLWEBDIR)$(CGIDIR)$@@ $(GMTUMLSHOWPASSWORDRESETOBJS) -L Libraries -lmlcgi -lcrypt
+
+gmtUmlShowRequestRegistrationForm.cgi: $(GMTUMLSHOWREGISTRATIONFORMOBJS)
+	$(LD) $(LFLAGS) -o $(GMTUMLWEBDIR)$(CGIDIR)$@@ $(GMTUMLSHOWREGISTRATIONFORMOBJS) -L Libraries -lmlcgi -lcrypt
+
+gmtUmlShowWebHelp.cgi: $(GMTUMLSHOWWEBHELPOBJS)
+	$(LD) $(LFLAGS) -o $(GMTUMLWEBDIR)$(CGIDIR)$@@ $(GMTUMLSHOWWEBHELPOBJS) -L Libraries -lmlcgi -lcrypt
+
+clean:
+	rm -f *.o $(ALL)
+
+@

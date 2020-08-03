@@ -1,0 +1,51 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@ * @;
+
+
+1.1
+date	2017.11.15.02.35.47;	author gabriel.tavora;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@/*
+ * Universidade Federal do Rio de Janeiro
+ * Escola Politecnica
+ * Departamento de Eletronica e de Computacao
+ * Prof. Marcelo Luiz Drumond Lanza
+ * EEL 270 - Computacao II - Turma 2017/2
+ *
+ * $Author$
+ * $Date$
+ * $Log$
+ *
+ */ 
+
+#ifndef _GMTUMLUSERINTERFACE_H
+#define _GMTUMLUSERINTERFACE_H "@@(#)gmtUmlUserInterface.h $Revision$"
+
+typedef enum {gmtUmlUserInterfaceMessageAmount} gmtUmlUserInterfaceMessageNumberType;
+
+char * 
+GmtUmlGetCliUserInterfaceMessage (gmtUmlUserInterfaceMessageNumberType, gmtUmlLanguageType); 
+
+char * 
+GmtUmlGetNcursesUserInterfaceMessage (gmtUmlUserInterfaceMessageNumberType, gmtumlLanguageType); 
+
+char * 
+GmtUmlGetWebUserInterfaceMessage (gmtUmlUserInterfaceMessageNumberType, gmtUmlLanguageType); 
+
+#endif  
+@

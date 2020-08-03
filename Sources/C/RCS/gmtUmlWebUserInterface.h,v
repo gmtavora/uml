@@ -1,0 +1,73 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@ * @;
+
+
+1.1
+date	2017.12.21.22.08.41;	author gabriel.tavora;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@/*
+ * Universidade Federal do Rio de Janeiro
+ * Escola Politecnica
+ * Departamento de Eletronica e de Computacao
+ * Prof. Marcelo Luiz Drumond Lanza
+ * EEL 270 - Computacao II - Turma 2017/2
+ *
+ * $Author$
+ * $Date$
+ * $Log$
+ *
+ */
+
+#ifndef _GMTUMLWEBUSERINTERFACE_H
+#define _GMTUMLWEBUSERINTERFACE_H "@@(#)gmtUmlWebUserInterface.h $Revision$"
+
+#include "gmtUmlTypes.h"
+
+typedef enum
+{
+	gmtUmlPageTitle,
+	gmtUmlProjectName,
+	gmtUmlResetPassword,
+	gmtUmlHelp,
+	gmtUmlLicense,
+	gmtUmlUsername,
+	gmtUmlPassword,
+	gmtUmlRememberMe,
+	gmtUmlForgotPassword,
+	gmtUmlRegister,
+	gmtUmlHome,
+	gmtUmlLogin,
+  gmtUmlLanguageSelect,
+  gmtUmlEmail,
+  gmtUmlBack,
+  gmtUmlFullName,
+  gmtUmlConfirmPassword,
+  gmtUmlYourEmail,
+  gmtUmlConfirmYourEmail,
+  gmtUmlFriendEmail,
+  gmtUmlAcceptTermsOfUse,
+	gmtUmlUIMessageAmount
+} gmtUmlMessageType;
+
+char *
+GmtUmlGetWebUserInterface (gmtUmlMessageType, gmtUmlLanguageType);
+
+#endif
+
+/* $RCSfile$ */
+@
