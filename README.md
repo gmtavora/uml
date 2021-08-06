@@ -52,3 +52,7 @@ To display this information in other language, you can use `gmtUml -h language=v
  ```
  make all
  ```
+
+# License
+
+MIT
