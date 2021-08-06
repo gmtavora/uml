@@ -2,7 +2,7 @@
 
 This is an user management library written in C. It can be used in command line or on the Web through CGI.
 
-# Help
+## Help
 
 To display this information in other language, you can use `gmtUml -h language=value`.
 
@@ -39,7 +39,7 @@ To display this information in other language, you can use `gmtUml -h language=v
       English
  ```
  
- # Make
+ ## Make
  
  First, edit the following file, replacing the original directory with yours:
  
@@ -53,6 +53,6 @@ To display this information in other language, you can use `gmtUml -h language=v
  make all
  ```
 
-# License
+## License
 
 MIT
